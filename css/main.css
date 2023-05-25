@@ -140,6 +140,8 @@ canvas {
 }
 
 .info {
+    width: 50%;
+    max-width: 256px;
     margin: 10px;
 }
 
@@ -148,8 +150,8 @@ canvas {
 }
 
 .albumart img {
-    width: 256px;
-    height: 256px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     border-radius: 5px;
     object-fit: cover;
   }
@@ -172,4 +174,9 @@ canvas {
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.track_add i {
+    color: var(--white);
+    font-size: 2rem;
 }
