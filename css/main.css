@@ -1,0 +1,109 @@
+
+@font-face {
+    font-family: 'Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bold';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --text: #14171A;
+    --textaccent: #45d07a;
+    --accent: #45d07a;
+    --accent-gradient: #ffe2e8;
+    --green: #45d07a;
+    --blue: #1DA1F2;
+    --pink: #f09fb6;
+    --darkgray: #626e65;
+    --gray: #e1ede8;
+    --lightgray: #faf5f5;
+    --white: #fff;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Regular';
+    font-size: 16px;
+    line-height: 180%;
+    letter-spacing: 2px;
+    color: var(--text);
+  }
+
+h1 {
+    font-size: 1.7em;
+    margin-top: 0.5em;
+    color: var(--darkgray);
+}
+
+h2 {
+    font-size: 1.4em;
+    color: var(--darkgray);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bold';
+    font-style: normal;
+    text-decoration: none;
+    font-weight: normal;
+    margin: 0 10px;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(var(--gray), var(--lightgray));
+}
+
+.whole_container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.logo {
+    position: fixed;
+    width: 100%;
+    max-width: 600px;
+    height: 60px;
+    background-color: var(--text);
+    color: var(--accent-gradient);
+    font-size: 2rem;
+    border-radius: 0 0 15px 15px;
+    text-align: center;
+}
+
+.logo span {
+    font-size: inherit;
+    color: var(--accent);
+}
+
+.nav {
+    position: fixed;
+    width: 100%;
+    max-width: 600px;
+    height: 60px;
+    bottom: 0;
+    background-color: var(--text);
+    display: flex;
+    justify-content: space-around;
+    border-radius: 15px 15px 0 0;
+}
+
+.nav_item {
+    margin-top: 5px;
+    font-size: 2rem;
+}
+
+.nav_item i {
+    color: var(--accent);
+    font-size: 2rem; 
+}
