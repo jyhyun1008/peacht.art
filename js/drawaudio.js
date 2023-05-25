@@ -46,7 +46,6 @@ const filterData = audioBuffer => {
     }
     filteredData.push(sum / blockSize); // divide the sum by the block size to get the average
   }
-  console.log(filteredData)
   return filteredData;
 };
 
@@ -58,7 +57,6 @@ const filterData = audioBuffer => {
 const normalizeData = filteredData => {
     const multiplier = Math.pow(Math.max(...filteredData), -1);
     var resultData = filteredData.map(n => n * multiplier)
-    console.log(resultData);
     return resultData;
 }
 
@@ -104,7 +102,6 @@ const drawLineSegment = (ctx, x, height, width, isEven) => {
   ctx.lineWidth = 1; // how thick the line is
   ctx.strokeStyle = "#1DA1F2"; // what color our line is
   ctx.beginPath();
-  console.log(height);
   height = 50 - height;
   height = isEven ? height : -height;
   ctx.moveTo(x, 0);
