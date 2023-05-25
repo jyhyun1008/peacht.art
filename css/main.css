@@ -114,7 +114,8 @@ body {
 }
 
 canvas {
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     height: 130px;
     margin: 2rem auto;
 }
