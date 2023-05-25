@@ -60,7 +60,6 @@ h1, h2, h3, h4, h5, h6 {
 body {
     height: 100vh;
     overflow: hidden;
-    background: linear-gradient(var(--gray), var(--lightgray));
 }
 
 .whole_container {
@@ -125,16 +124,33 @@ body {
     color: var(--white);
 }
 
-#track_sample {
-    background-color: var(--white);
-}
-
 canvas {
-    width: 100%;
-    max-width: 600px;
+    width: 10000px;
     height: 100px;
 }
 
 .song {
     margin-top: 100px;
+    transform: translate(calc( 300px - 50vw ), 0);
+    width: 100vw;
+    display: flex;
+}
+
+.info {
+    margin: 10px;
+}
+
+.albumart img {
+    width: 256px;
+    height: 256px;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+  
+.tracks {
+    width: 10000px;
+    margin: 10px;
+    overflow-x: scroll;
+    background: linear-gradient(var(--gray), var(--lightgray));
+    border-radius: 5px;
 }
