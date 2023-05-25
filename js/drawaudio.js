@@ -102,7 +102,7 @@ const draw = normalizedData => {
  */
 const drawLineSegment = (ctx, x, height, width, isEven) => {
   ctx.lineWidth = 1; // how thick the line is
-  ctx.strokeStyle = "#fff"; // what color our line is
+  ctx.strokeStyle = "#1DA1F2"; // what color our line is
   ctx.beginPath();
   console.log(height);
   height = 45- height;
