@@ -69,7 +69,7 @@ const normalizeData = filteredData => {
  */
 const draw = (normalizedData, index) => {
   // set up the canvas
-  const canvas = document.getElementsByClassName("track_item")[index];
+  const canvas = document.getElementsByClassName("track_canvas")[index];
   const dpr = window.devicePixelRatio || 1;
   const padding = 20;
   canvas.width = canvas.offsetWidth * dpr;
