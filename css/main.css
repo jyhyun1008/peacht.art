@@ -140,16 +140,24 @@ canvas {
     margin: 10px;
 }
 
+.songtitle {
+    font-family: 'Bold';
+}
+
 .albumart img {
     width: 256px;
     height: 256px;
     border-radius: 5px;
     object-fit: cover;
   }
-  
+
 .tracks {
-    width: 10000px;
     margin: 10px;
+    width: calc(100vw - 296px);
+}
+  
+.tracklist {
+    width: 100%;
     overflow-x: scroll;
     background: linear-gradient(var(--gray), var(--lightgray));
     border-radius: 5px;
