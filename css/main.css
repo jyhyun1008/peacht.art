@@ -15,15 +15,15 @@
 
 :root {
     --text: #14171A;
-    --textaccent: #45d07a;
-    --accent: #45d07a;
+    --textaccent: #1DA1F2;
+    --accent: #1DA1F2;
     --accent-gradient: #ffe2e8;
     --green: #45d07a;
     --blue: #1DA1F2;
     --pink: #f09fb6;
-    --darkgray: #626e65;
-    --gray: #e1ede8;
-    --lightgray: #faf5f5;
+    --darkgray: #657786;
+    --gray: #AAB8C2;
+    --lightgray: #E1E8ED;
     --white: #fff;
 }
 
