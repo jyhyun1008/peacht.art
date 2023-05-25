@@ -46,7 +46,7 @@ const filterData = audioBuffer => {
     }
     filteredData.push(sum / blockSize); // divide the sum by the block size to get the average
   }
-  console.log(filteredData)
+  console.log(filteredData);
   return filteredData;
 };
 
@@ -56,7 +56,7 @@ const filterData = audioBuffer => {
  * @returns {Array} an normalized array of floating point numbers
  */
 const normalizeData = filteredData => {
-    const multiplier = Math.pow(Math.max(...filteredData), -1);
+    const multiplier = Math.pow(Math.max(...filteredData), 1);
     return filteredData.map(n => n * multiplier);
 }
 
