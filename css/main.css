@@ -110,7 +110,7 @@ body {
 }
 
 #track_sample {
-    background-color: var(--darkgray);
+    background-color: var(--white);
 }
 
 canvas {
