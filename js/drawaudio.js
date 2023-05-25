@@ -106,7 +106,7 @@ const drawLineSegment = (ctx, x, height, width, isEven) => {
   ctx.beginPath();
   console.log(height);
   height = 50 - height;
-  height != isEven ? height : -height;
+  height = isEven ? height : -height;
   ctx.moveTo(x, 0);
   ctx.lineTo(x, height);
   ctx.arc(x + width / 2, height, width / 2, Math.PI, 0, isEven);
