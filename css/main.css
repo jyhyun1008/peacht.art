@@ -158,7 +158,7 @@ canvas {
 
 .tracks {
     margin: 10px;
-    width: max(calc(100vw - 296px), 100%);
+    width: max(calc(100vw - 296px), 50%);
 }
   
 .tracklist {
