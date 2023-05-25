@@ -132,7 +132,7 @@ body {
 canvas {
     width: 100%;
     max-width: 600px;
-    height: 130px;
+    height: 100px;
 }
 
 .song {
