@@ -108,6 +108,10 @@ body {
     font-size: 2rem; 
 }
 
+.track_sample {
+    background-color: var(--darkgray);
+}
+
 canvas {
     width: 600px;
     height: 130px;
