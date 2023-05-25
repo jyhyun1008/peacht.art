@@ -134,7 +134,7 @@ canvas {
 
 .song {
     margin-top: 100px;
-    transform: translate(calc( 300px - 50vw ), 0);
+    transform: translate(min(calc( 300px - 50vw ), 0), 0);
     width: 100vw;
     display: flex;
 }
@@ -164,6 +164,7 @@ canvas {
 .tracklist {
     width: 100%;
     overflow-x: scroll;
+    border-radius: 5px;
 }
 
 .track_add {
