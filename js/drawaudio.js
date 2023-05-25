@@ -21,11 +21,11 @@ const audioContext = new AudioContext();
  * Retrieves audio from an external source, the initializes the drawing function
  * @param {String} url the url of the audio we'd like to fetch
  */
-const drawAudio = url => {
+const drawAudio = (url, index) => {
   fetch(url)
     .then(response => response.arrayBuffer())
     .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
-    .then(audioBuffer => draw(normalizeData(filterData(audioBuffer))));
+    .then(audioBuffer => draw(normalizeData(filterData(audioBuffer)), index));
 };
 
 /**
@@ -67,9 +67,9 @@ const normalizeData = filteredData => {
  * @param {Array} normalizedData The filtered array returned from filterData()
  * @returns {Array} a normalized array of data
  */
-const draw = normalizedData => {
+const draw = (normalizedData, index) => {
   // set up the canvas
-  const canvas = document.querySelector("canvas");
+  const canvas = document.getElementsByClassName("track_item")[index];
   const dpr = window.devicePixelRatio || 1;
   const padding = 20;
   canvas.width = canvas.offsetWidth * dpr;
@@ -114,4 +114,5 @@ const drawLineSegment = (ctx, x, height, width, isEven) => {
   ctx.stroke();
 };
 
-drawAudio('assets/sample.mp3');
+drawAudio('assets/sample.mp3', 0);
+drawAudio('assets/sample.mp3', 1);
