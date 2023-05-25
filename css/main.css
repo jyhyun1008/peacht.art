@@ -109,6 +109,22 @@ body {
     font-size: 2rem; 
 }
 
+.nav_add {
+    height: 80px;
+    width: 80px;
+    margin: -10px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav_add i {
+    font-size: 2.3rem;
+    color: var(--white);
+}
+
 #track_sample {
     background-color: var(--white);
 }
