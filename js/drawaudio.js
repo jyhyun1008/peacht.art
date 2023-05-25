@@ -105,10 +105,20 @@ const drawLineSegment = (ctx, x, height, width, isEven) => {
   ctx.strokeStyle = "#fff"; // what color our line is
   ctx.beginPath();
   console.log(height);
-  height = 130 - height;
+  height = 45- height;
   height = isEven ? height : -height;
   ctx.moveTo(x, 0);
   ctx.lineTo(x, height);
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   ctx.arc(x + width / 2, height, width / 2, Math.PI, 0, isEven);
   ctx.lineTo(x + width, 0);
   ctx.stroke();
