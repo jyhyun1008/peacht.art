@@ -104,6 +104,7 @@ const drawLineSegment = (ctx, x, height, width, isEven) => {
   ctx.lineWidth = 1; // how thick the line is
   ctx.strokeStyle = "#fff"; // what color our line is
   ctx.beginPath();
+  height = 130 - height;
   height = isEven ? height : -height;
   ctx.moveTo(x, 0);
   ctx.lineTo(x, height);
