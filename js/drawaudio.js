@@ -43,7 +43,6 @@ const filterData = audioBuffer => {
     const sampleRate = 48000;
   }
   //const samples = 1400; // Number of samples we want to have in our final data set
-  console.log(rawData);
   const samples = rawData.length * ticksPerBeat * BPM / 60 / sampleRate; // Number of samples we want to have in our final data set
   const blockSize = Math.floor(rawData.length / samples); // the number of samples in each subdivision
   const filteredData = [];
