@@ -149,12 +149,25 @@ canvas {
     font-family: 'Bold';
 }
 
-.albumart img {
+.albumart_img img {
     width: 100%;
     aspect-ratio: 1 / 1;
     border-radius: 5px;
     object-fit: cover;
   }
+
+.playbutton {
+    width: 100%;
+    height: 0;
+    text-align: center;
+    position: relative;
+    top: max( calc( -138px - 2rem) , calc( -10px - 25vw - 2rem ) );
+}
+
+.playbutton i {
+    font-size: 4rem;
+    color: var(--white);
+}
 
 .tracks {
     margin: 10px;

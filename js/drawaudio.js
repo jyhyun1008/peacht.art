@@ -34,8 +34,11 @@ const drawAudio = (url, index) => {
  * @returns {Array} an array of floating point numbers
  */
 const filterData = audioBuffer => {
+  const BPM = getElementById('beat');
+  const ticksPerBeat = 8;
   const rawData = audioBuffer.getChannelData(0); // We only need to work with one channel of data
-  const samples = 1400; // Number of samples we want to have in our final data set
+  //const samples = 1400; // Number of samples we want to have in our final data set
+  const samples = rawData.length * ticksPerBeat * BPM / 60 / rawData.sampleRate; // Number of samples we want to have in our final data set
   const blockSize = Math.floor(rawData.length / samples); // the number of samples in each subdivision
   const filteredData = [];
   for (let i = 0; i < samples; i++) {
@@ -70,6 +73,7 @@ const draw = (normalizedData, index) => {
   const canvas = document.getElementsByClassName("track_canvas")[index];
   const dpr = window.devicePixelRatio || 1;
   const padding = 20;
+  canvas.offsetWidth = normalizedData.length * 6;
   canvas.width = canvas.offsetWidth * dpr;
   canvas.height = (canvas.offsetHeight + padding * 2) * dpr;
   const ctx = canvas.getContext("2d");
