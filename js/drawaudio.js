@@ -38,6 +38,7 @@ const filterData = audioBuffer => {
   const ticksPerBeat = 8;
   const rawData = audioBuffer.getChannelData(0); // We only need to work with one channel of data
   //const samples = 1400; // Number of samples we want to have in our final data set
+  console.log(rawData.sampleRate);
   const samples = rawData.length * ticksPerBeat * BPM / 60 / rawData.sampleRate; // Number of samples we want to have in our final data set
   const blockSize = Math.floor(rawData.length / samples); // the number of samples in each subdivision
   const filteredData = [];
