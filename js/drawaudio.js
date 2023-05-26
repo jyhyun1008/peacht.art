@@ -47,7 +47,7 @@ const filterData = audioBuffer => {
   console.log(samples);
   const blockSize = Math.floor(rawData.length / samples); // the number of samples in each subdivision
   const filteredData = [];
-  for (let i = 0; i < samples; i++) {
+  for (let i = 0; i < parseInt(samples); i++) {
     let blockStart = blockSize * i; // the location of the first sample in the block
     let sum = 0;
     for (let j = 0; j < blockSize; j++) {
