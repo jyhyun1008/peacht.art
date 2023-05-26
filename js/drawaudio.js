@@ -34,7 +34,7 @@ const drawAudio = (url, index) => {
  * @returns {Array} an array of floating point numbers
  */
 const filterData = audioBuffer => {
-  const BPM = getElementById('beat').innerText;
+  const BPM = parseInt(getElementById('beat').innerText);
   const ticksPerBeat = 8;
   const rawData = audioBuffer.getChannelData(0); // We only need to work with one channel of data
   //const samples = 1400; // Number of samples we want to have in our final data set
