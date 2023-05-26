@@ -55,6 +55,7 @@ const filterData = audioBuffer => {
     }
     filteredData.push(sum / blockSize); // divide the sum by the block size to get the average
   }
+  console.log(filteredData);
   return filteredData;
 };
 
