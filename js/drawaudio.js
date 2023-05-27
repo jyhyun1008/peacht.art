@@ -149,14 +149,16 @@ const addAudio = (url, title, index, delay) => {
     drawAudio(url, index, delay);
 }
 
-addAudio('assets/Melody-Sample.m4a', 'Melody-Sample', 0, 0);
-addAudio('assets/Bass-Sample.m4a','Bass-Sample' , 1, 0);
-addAudio('assets/Drum-Sample.m4a', 'Drum-Sample', 2, 0);
 
 const playButton = document.getElementsByClassName('albumart')[0];
 var urlArray = [];
 var delayArray = []; 
 var audioArray = [];
+
+addAudio('assets/Melody-Sample.m4a', 'Melody-Sample', 0, 0);
+addAudio('assets/Bass-Sample.m4a','Bass-Sample' , 1, 0);
+addAudio('assets/Drum-Sample.m4a', 'Drum-Sample', 2, 0);
+
 
 const playHandler = (urlArray, delayArray) => {
     for (var i = 0; i < urlArray.length; i++){
