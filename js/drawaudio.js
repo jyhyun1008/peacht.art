@@ -87,7 +87,7 @@ const draw = (normalizedData, index) => {
   ctx.scale(dpr, dpr);
   ctx.translate(0, canvas.offsetHeight / 2 + padding); // set Y = 0 to be in the middle of the canvas
 
-  const BEAT = parseInt(document.getElementById('beat').innerText) * 4;
+  const BEAT = parseInt(document.getElementById('beat1').innerText)/parseInt(document.getElementById('beat2').innerText) * 4;
 
   for (let i = 0; i < parseInt(canvas.offsetWidth / 8 / 4) ; i++ ){
     ctx.lineWidth = 1; // how thick the line is
