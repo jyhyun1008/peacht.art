@@ -176,14 +176,23 @@ canvas {
   
 .tracklist {
     width: 100%;
+    transform: rotate(0);
     overflow-x: scroll;
     border-radius: 5px;
 }
 
-.track_title {
+.track_controller {
     position: fixed;
     left: min(286px, calc(50% + 30px));
     z-index: 1;
+}
+
+.track_title, .track_mute {
+    background-color: var(--white);
+    color: var(--darkgray);
+    margin: 0 3px;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .v-line {
