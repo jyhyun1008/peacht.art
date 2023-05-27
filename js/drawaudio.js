@@ -149,7 +149,6 @@ const addAudio = (url, title, index, delay) => {
     drawAudio(url, index, delay);
 }
 
-
 const playButton = document.getElementsByClassName('playbutton')[0];
 var delayArray = []; 
 var audioArray = [];
@@ -158,7 +157,6 @@ var indexArray = [];
 addAudio('assets/Melody-Sample.m4a', 'Melody-Sample', 0, 0);
 addAudio('assets/Bass-Sample.m4a','Bass-Sample' , 1, 0);
 addAudio('assets/Drum-Sample.m4a', 'Drum-Sample', 2, 0);
-
 
 function asyncPlay(index) {
     return new Promise((resolve, reject) => {
@@ -170,11 +168,14 @@ function asyncPlay(index) {
   }
 
 async function parallel(array) {
-    playButton.innerHTML = '<i class="bx bx-pause-circle" ></i>';
     const promises = array.map((index) => asyncPlay(index));
     await Promise.all(promises);
     console.log("all done :)");
   }
 
+const playFunction = () => {
+    playButton.innerHTML = '<i class="bx bx-pause-circle" ></i>';
+    parallel(indexArray);
+}
 
-playButton.addEventListener('click',parallel(indexArray));
+playButton.addEventListener('click', playFunction());
