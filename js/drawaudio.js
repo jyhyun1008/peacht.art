@@ -175,9 +175,7 @@ async function parallel(array) {
     console.log("all done :)");
   }
 
-const playFunction = () => {
+playButton.addEventListener('click', function(event){
     playButton.innerHTML = '<i class="bx bx-pause-circle" ></i>';
     parallel(indexArray);
-}
-
-//playButton.addEventListener('click', playFunction());
+});
