@@ -38,7 +38,7 @@ const filterData = (audioBuffer, delay) => {
   const BEAT = parseInt(document.getElementById('beat1').innerText)/parseInt(document.getElementById('beat2').innerText) * 4;
   const ticksPerBeat = 8;
   const rawData = audioBuffer.getChannelData(0); // We only need to work with one channel of data
-  console.log(rawData);
+  console.log(audioBuffer);
   if (rawData.sampleRate) {
     var sampleRate = rawData.sampleRate;
   } else {
@@ -148,5 +148,5 @@ const addAudio = (url, title, index, delay) => {
 }
 
 addAudio('assets/Melody-Sample.m4a', 'Melody-Sample', 0, 0);
-addAudio('assets/Bass-Sample.m4a','Bass-Sample' , 1, 0.25);
-addAudio('assets/Drum-Sample.m4a', 'Drum-Sample', 2, 0.25);
+addAudio('assets/Bass-Sample.m4a','Bass-Sample' , 1, 0);
+addAudio('assets/Drum-Sample.m4a', 'Drum-Sample', 2, 0);
