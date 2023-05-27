@@ -74,62 +74,14 @@ const normalizeData = filteredData => {
  * @returns {Array} a normalized array of data
  */
 const draw = (normalizedData, index) => {
-  // set up the canvas
-  const canvas = document.getElementsByClassName("track_canvas")[index];
-  const dpr = window.devicePixelRatio || 1;
-  const padding = 20;
-  console.log(normalizedData.length * 6);
-  canvas.setAttribute('width', String(normalizedData.length * 6));
-  canvas.offsetWidth = normalizedData.length * 6;
-  canvas.width = canvas.offsetWidth * dpr;
-  canvas.height = (canvas.offsetHeight + padding * 2) * dpr;
-  const ctx = canvas.getContext("2d");
-  ctx.scale(dpr, dpr);
-  ctx.translate(0, canvas.offsetHeight / 2 + padding); // set Y = 0 to be in the middle of the canvas
 
-  for (let i = 0; i < parseInt(canvas.offsetWidth / 8 / 12) ; i++ ){
-    ctx.lineWidth = 1; // how thick the line is
-    ctx.strokeStyle = "#fff"; // what color our line is
-    ctx.beginPath();
-    ctx.moveTo(i * 8 * 6, -1 * canvas.offsetHeight);
-    ctx.lineTo(i * 8 * 6, canvas.offsetHeight);
-    ctx.stroke();
-  }
-
-  // draw the line segments
-  const width = 6;
-  for (let i = 0; i < normalizedData.length; i++) {
-    const x = width * i;
-    let height = normalizedData[i] * canvas.offsetHeight - padding;
-    if (height < 0) {
-        height = 0;
-    } else if (height > canvas.offsetHeight / 2) {
-        height = height > canvas.offsetHeight / 2;
+    const canvas = document.getElementsByClassName("track_canvas")[index];
+    canvas.setAttribute('width', String(normalizedData.length * 6));
+    for (let i = 0; i < normalizedData.length; i++){
+        canvas.innerHTML += '<div class="waveSegment" height="'+(normalizedData[i]*canvas.style.height)+'px"></div>';
     }
-    drawLineSegment(ctx, x, height, width, (i + 1) % 2);
-  }
 };
 
-/**
- * A utility function for drawing our line segments
- * @param {AudioContext} ctx the audio context 
- * @param {number} x  the x coordinate of the beginning of the line segment
- * @param {number} height the desired height of the line segment
- * @param {number} width the desired width of the line segment
- * @param {boolean} isEven whether or not the segmented is even-numbered
- */
-const drawLineSegment = (ctx, x, height, width, isEven) => {
-  ctx.lineWidth = 1; // how thick the line is
-  ctx.strokeStyle = "#1DA1F2"; // what color our line is
-  ctx.beginPath();
-  height = 50 - height;
-  height = isEven ? height : -height;
-  ctx.moveTo(x, 0);
-  ctx.lineTo(x, height);
-  ctx.arc(x + width / 2, height, width / 2, Math.PI, 0, isEven);
-  ctx.lineTo(x + width, 0);
-  ctx.stroke();
-};
 
 drawAudio('assets/sample.mp3', 0);
 drawAudio('assets/sample.mp3', 1);
