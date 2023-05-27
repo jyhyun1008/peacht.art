@@ -34,7 +34,7 @@ const drawAudio = (url, index) => {
  * @returns {Array} an array of floating point numbers
  */
 const filterData = audioBuffer => {
-  const BPM = parseInt(document.getElementById('beat').innerText);
+  const BPM = parseInt(document.getElementById('bpm').innerText);
   const ticksPerBeat = 8;
   const rawData = audioBuffer.getChannelData(0); // We only need to work with one channel of data
   if (rawData.sampleRate) {
@@ -79,7 +79,6 @@ const draw = (normalizedData, index) => {
   const canvas = document.getElementsByClassName("track_canvas")[index];
   const dpr = window.devicePixelRatio || 1;
   const padding = 20;
-  console.log(normalizedData.length * 4);
   canvas.setAttribute('style', 'width: '+(normalizedData.length * 6)+'px;');
   canvas.offsetWidth = normalizedData.length * 4;
   canvas.width = canvas.offsetWidth * dpr;
@@ -88,12 +87,23 @@ const draw = (normalizedData, index) => {
   ctx.scale(dpr, dpr);
   ctx.translate(0, canvas.offsetHeight / 2 + padding); // set Y = 0 to be in the middle of the canvas
 
+  const BEAT = parseInt(document.getElementById('beat').innerText) * 4;
+
   for (let i = 0; i < parseInt(canvas.offsetWidth / 8 / 4) ; i++ ){
     ctx.lineWidth = 1; // how thick the line is
     ctx.strokeStyle = "#fff"; // what color our line is
     ctx.beginPath();
     ctx.moveTo(i * 8 * 4, -1 * canvas.offsetHeight);
     ctx.lineTo(i * 8 * 4, canvas.offsetHeight);
+    ctx.stroke();
+  }
+
+  for (let k = 0; k < parseInt(canvas.offsetWidth / 8 / 4 / BEAT) ; i++){
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "#AAB8C2";
+    ctx.beginPath();
+    ctx.moveTo(i * 32 * BEAT, -1 * canvas.offsetHeight);
+    ctx.lineTo(i * 32 * BEAT, canvas.offsetHeight);
     ctx.stroke();
   }
 
