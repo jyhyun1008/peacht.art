@@ -98,7 +98,7 @@ const draw = (normalizedData, index) => {
     ctx.stroke();
   }
 
-  for (let k = 0; k < parseInt(canvas.offsetWidth / 8 / 4 / BEAT) ; i++){
+  for (let k = 0; k < parseInt(canvas.offsetWidth / 8 / 4 / BEAT) ; k++){
     ctx.lineWidth = 1;
     ctx.strokeStyle = "#AAB8C2";
     ctx.beginPath();
