@@ -180,19 +180,6 @@ canvas {
     border-radius: 5px;
 }
 
-.track_canvas {
-    height: 100px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: var(--gray);
-}
-
-.waveSegment {
-    width: 4px;
-    background-color: var(--accent);
-}
-
 .track_add {
     width: 100%;
     border-radius: 5px;
