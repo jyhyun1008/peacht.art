@@ -78,7 +78,7 @@ const draw = (normalizedData, index) => {
     const canvas = document.getElementsByClassName("track_canvas")[index];
     canvas.setAttribute('width', String(normalizedData.length * 6));
     for (let i = 0; i < normalizedData.length; i++){
-        canvas.innerHTML += '<div class="waveSegment" height="'+(normalizedData[i]*canvas.style.height)+'px"></div>';
+        canvas.innerHTML += '<div class="waveSegment" height="'+(normalizedData[i]*100)+'px"></div>';
     }
 };
 
