@@ -170,7 +170,7 @@ playButton.addEventListener('click', function(event){
         vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; left: 0px;')
         var vLinePosition = 0;
         (function repeatOften() {
-            vLinePosition += 32*parseInt(document.getElementById('bpm').innerText)/60/1000;
+            vLinePosition += 32*parseInt(document.getElementById('bpm').innerText)/60/60;
             vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; left: '+vLinePosition+'px;')
             playAnimation = requestAnimationFrame(repeatOften);
         })();
