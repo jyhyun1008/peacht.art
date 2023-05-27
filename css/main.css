@@ -185,6 +185,7 @@ canvas {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: var(--gray);
 }
 
 .waveSegment {
