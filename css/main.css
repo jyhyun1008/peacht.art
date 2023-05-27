@@ -180,6 +180,13 @@ canvas {
     border-radius: 5px;
 }
 
+.track_title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
 .track_add {
     width: 100%;
     border-radius: 5px;
