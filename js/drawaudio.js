@@ -135,10 +135,6 @@ const addAudio = (url, title, index, delay) => {
 const playButton = document.getElementsByClassName('playbutton')[0];
 var playAnimation;
 
-var vLine = document.getElementsByClassName('v-line')[0];
-var vLinePosition = 0;
-vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; left: '+vLinePosition+'px;');
-
 const BPM = parseInt(document.getElementById('bpm').innerText);
 const BEAT = parseInt(document.getElementById('beat1').innerText)/parseInt(document.getElementById('beat2').innerText) * 4;
 
@@ -149,6 +145,10 @@ var indexArray = [];
 addAudio('assets/Melody-Sample.m4a', 'Melody-Sample', 0, 0);
 addAudio('assets/Bass-Sample.m4a','Bass-Sample' , 1, 0);
 addAudio('assets/Drum-Sample.m4a', 'Drum-Sample', 2, 0);
+
+var vLine = document.getElementsByClassName('v-line')[0];
+var vLinePosition = 0;
+vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; left: '+vLinePosition+'px;');
 
 function asyncPlay(index) {
     return new Promise((resolve, reject) => {
