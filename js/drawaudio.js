@@ -137,5 +137,11 @@ const drawLineSegment = (ctx, x, height, width, isEven) => {
   ctx.stroke();
 };
 
-drawAudio('assets/sample.mp3', 0);
-drawAudio('assets/sample.mp3', 1);
+const addAudio = (url, index) => {
+    document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="track_item" ><canvas class="track_canvas"></canvas></div>';
+    drawAudio(url, index);
+}
+
+addAudio('assets/Melody-Sample.m4a', 0);
+addAudio('assets/Bass-Sample.m4a', 1);
+addAudio('assets/Drum-Sample.m4a', 2);
