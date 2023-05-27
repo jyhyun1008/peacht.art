@@ -39,10 +39,10 @@ const filterData = (audioBuffer, delay) => {
   const ticksPerBeat = 8;
   const rawData = audioBuffer.getChannelData(0); // We only need to work with one channel of data
   console.log(audioBuffer);
-  if (rawData.sampleRate) {
-    var sampleRate = rawData.sampleRate;
+  if (audioBuffer.sampleRate) {
+    var sampleRate = audioBuffer.sampleRate;
   } else {
-    var sampleRate = 44100;
+    var sampleRate = 48000;
   }
   //const samples = 1400; // Number of samples we want to have in our final data set
   const samples = rawData.length * ticksPerBeat * BPM / 60 / sampleRate; // Number of samples we want to have in our final data set
