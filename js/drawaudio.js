@@ -170,6 +170,7 @@ function asyncPlay(index) {
   }
 
 async function parallel(array) {
+    playButton.innerHTML = '<i class="bx bx-pause-circle" ></i>';
     const promises = array.map((index) => asyncPlay(index));
     await Promise.all(promises);
     console.log("all done :)");
