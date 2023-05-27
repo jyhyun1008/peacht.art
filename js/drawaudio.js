@@ -137,11 +137,11 @@ const drawLineSegment = (ctx, x, height, width, isEven) => {
   ctx.stroke();
 };
 
-const addAudio = (url, index) => {
-    document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="track_item" ><canvas class="track_canvas"></canvas></div>';
+const addAudio = (url, title, index) => {
+    document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="track_item" >'+title+'<canvas class="track_canvas"></canvas></div>';
     drawAudio(url, index);
 }
 
-addAudio('assets/Melody-Sample.m4a', 0);
-addAudio('assets/Bass-Sample.m4a', 1);
-addAudio('assets/Drum-Sample.m4a', 2);
+addAudio('assets/Melody-Sample.m4a', 'Melody-Sample',0);
+addAudio('assets/Bass-Sample.m4a','Bass-Sample' , 1);
+addAudio('assets/Drum-Sample.m4a', 'Drum-Sample', 2);
