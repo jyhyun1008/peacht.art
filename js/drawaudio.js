@@ -102,8 +102,8 @@ const draw = (normalizedData, index) => {
     ctx.lineWidth = 1;
     ctx.strokeStyle = "#AAB8C2";
     ctx.beginPath();
-    ctx.moveTo(i * 32 * BEAT, -1 * canvas.offsetHeight);
-    ctx.lineTo(i * 32 * BEAT, canvas.offsetHeight);
+    ctx.moveTo(k * 32 * BEAT, -1 * canvas.offsetHeight);
+    ctx.lineTo(k * 32 * BEAT, canvas.offsetHeight);
     ctx.stroke();
   }
 
