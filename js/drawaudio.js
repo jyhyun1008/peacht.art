@@ -91,19 +91,14 @@ const draw = (normalizedData, index) => {
 
   for (let i = 0; i < parseInt(canvas.offsetWidth / 8 / 4) ; i++ ){
     ctx.lineWidth = 1; // how thick the line is
-    ctx.strokeStyle = "#fff"; // what color our line is
+    if (i % BEAT == 0 ){
+        ctx.strokeStyle = "#AAB8C2";
+    } else {
+        ctx.strokeStyle = "#fff"; // what color our line is
+    }
     ctx.beginPath();
     ctx.moveTo(i * 8 * 4, -1 * canvas.offsetHeight);
     ctx.lineTo(i * 8 * 4, canvas.offsetHeight);
-    ctx.stroke();
-  }
-
-  for (let k = 0; k < parseInt(canvas.offsetWidth / 8 / 4 / BEAT) ; k++){
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = "#AAB8C2";
-    ctx.beginPath();
-    ctx.moveTo(k * 32 * BEAT, -1 * canvas.offsetHeight);
-    ctx.lineTo(k * 32 * BEAT, canvas.offsetHeight);
     ctx.stroke();
   }
 
