@@ -80,7 +80,7 @@ const draw = (normalizedData, index) => {
   const canvas = document.getElementsByClassName("track_canvas")[index];
   const dpr = window.devicePixelRatio || 1;
   const padding = 20;
-  canvas.offsetWidth = normalizedData.length * 6;
+  canvas.offsetWidth = normalizedData.length * 12;
   canvas.width = canvas.offsetWidth * dpr;
   canvas.height = (canvas.offsetHeight + padding * 2) * dpr;
   const ctx = canvas.getContext("2d");
@@ -98,6 +98,12 @@ const draw = (normalizedData, index) => {
         height = height > canvas.offsetHeight / 2;
     }
     drawLineSegment(ctx, x, height, width, (i + 1) % 2);
+  }
+
+  for (let i = 0; i < parseInt(canvas.offsetWidth / 8 / 12) ; i++ ){
+    ctx.beginPath();
+    ctx.moveTo(i * 8 * 12, -1 * canvas.offsetHeight);
+    ctx.lineTo(i * 8 * 12, canvas.offsetHeight);
   }
 };
 
