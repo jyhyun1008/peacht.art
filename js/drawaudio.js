@@ -163,8 +163,8 @@ async function parallel(array) {
   }
 
 playButton.addEventListener('click', function(event){
-    if (playButton.innerHTML == '<i class="bx bx-play-circle" ></i>') {
-        playButton.innerHTML = '<i class="bx bx-pause-circle" ></i>';
+    if (playButton.innerHTML == '<i class="bx bx-play-circle"></i>') {
+        playButton.innerHTML = '<i class="bx bx-pause-circle"></i>';
         parallel(indexArray);
         document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="v-line" style="height: '+indexArray.length * 110+'px;"></div>';
         var vLine = document.getElementsByClassName('v-line')[0];
@@ -174,8 +174,8 @@ playButton.addEventListener('click', function(event){
             vLine.setAttribute('style', 'left: '+vLinePosition+'px;')
             playAnimation = requestAnimationFrame(repeatOften);
         })();
-    } else if (playButton.innerHTML == '<i class="bx bx-pause-circle" ></i>') {
-        playButton,innerHTML = '<i class="bx bx-play-circle" ></i>';
+    } else if (playButton.innerHTML == '<i class="bx bx-pause-circle"></i>') {
+        playButton,innerHTML = '<i class="bx bx-play-circle"></i>';
         for (var i = 0; i < indexArray.length; i++){
             audioArray[i].pause();
             cancelAnimationFrame(playAnimation);
