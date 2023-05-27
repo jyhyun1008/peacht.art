@@ -161,7 +161,7 @@ canvas {
     height: 0;
     text-align: center;
     position: relative;
-    top: max( calc( -138px - 2rem) , calc( -10px - 25vw - 2rem ) );
+    top: max( calc( -138px - 2rem) , calc( 10px - 25vw - 2rem ) );
 }
 
 .playbutton i {
