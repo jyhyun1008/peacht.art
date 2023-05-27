@@ -176,6 +176,13 @@ async function parallel(array) {
   }
 
 playButton.addEventListener('click', function(event){
-    playButton.innerHTML = '<i class="bx bx-pause-circle" ></i>';
-    parallel(indexArray);
+    if (playButton.innerHTML == '<i class="bx bx-play-circle" ></i>') {
+        playButton.innerHTML = '<i class="bx bx-pause-circle" ></i>';
+        parallel(indexArray);
+    } else if (playButton.innerHTML == '<i class="bx bx-pause-circle" ></i>') {
+        playButton,innerHTML = '<i class="bx bx-play-circle" ></i>';
+        for (var i = 0; i < indexArray.length; i++){
+            audioArray[i].pause();
+        }
+    }
 });
