@@ -21,11 +21,11 @@ const audioContext = new AudioContext();
  * Retrieves audio from an external source, the initializes the drawing function
  * @param {String} url the url of the audio we'd like to fetch
  */
-const drawAudio = (url, index) => {
+const drawAudio = (url, index, delay) => {
   fetch(url)
     .then(response => response.arrayBuffer())
     .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
-    .then(audioBuffer => draw(normalizeData(filterData(audioBuffer)), index));
+    .then(audioBuffer => draw(normalizeData(filterData(audioBuffer, delay)), index));
 };
 
 /**
@@ -33,8 +33,9 @@ const drawAudio = (url, index) => {
  * @param {AudioBuffer} audioBuffer the AudioBuffer from drawAudio()
  * @returns {Array} an array of floating point numbers
  */
-const filterData = audioBuffer => {
+const filterData = (audioBuffer, delay) => {
   const BPM = parseInt(document.getElementById('bpm').innerText);
+  const BEAT = parseInt(document.getElementById('beat1').innerText)/parseInt(document.getElementById('beat2').innerText) * 4;
   const ticksPerBeat = 8;
   const rawData = audioBuffer.getChannelData(0); // We only need to work with one channel of data
   if (rawData.sampleRate) {
@@ -46,6 +47,9 @@ const filterData = audioBuffer => {
   const samples = rawData.length * ticksPerBeat * BPM / 60 / sampleRate; // Number of samples we want to have in our final data set
   const blockSize = Math.floor(rawData.length / samples); // the number of samples in each subdivision
   const filteredData = [];
+  for (let j = 0; j < delay * ticksPerBeat * BEAT; j++){
+    filteredData.push(0);
+  }
   for (let i = 0; i < parseInt(samples); i++) {
     let blockStart = blockSize * i; // the location of the first sample in the block
     let sum = 0;
@@ -137,11 +141,11 @@ const drawLineSegment = (ctx, x, height, width, isEven) => {
   ctx.stroke();
 };
 
-const addAudio = (url, title, index) => {
+const addAudio = (url, title, index, delay) => {
     document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="track_item" >'+title+'<canvas class="track_canvas"></canvas></div>';
-    drawAudio(url, index);
+    drawAudio(url, index, delay);
 }
 
-addAudio('assets/Melody-Sample.m4a', 'Melody-Sample',0);
-addAudio('assets/Bass-Sample.m4a','Bass-Sample' , 1);
-addAudio('assets/Drum-Sample.m4a', 'Drum-Sample', 2);
+addAudio('assets/Melody-Sample.m4a', 'Melody-Sample', 0, 0);
+addAudio('assets/Bass-Sample.m4a','Bass-Sample' , 1, 0.25);
+addAudio('assets/Drum-Sample.m4a', 'Drum-Sample', 2, 0.25);
