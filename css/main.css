@@ -176,7 +176,6 @@ canvas {
   
 .tracklist {
     width: 100%;
-    transform: rotate(0);
     overflow-x: scroll;
     border-radius: 5px;
 }
@@ -190,7 +189,7 @@ canvas {
 .track_title, .track_mute {
     background-color: var(--white);
     color: var(--darkgray);
-    margin: 0 3px;
+    margin: 3px;
     padding: 5px;
     border-radius: 5px;
 }
