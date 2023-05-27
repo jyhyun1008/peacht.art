@@ -87,6 +87,14 @@ const draw = (normalizedData, index) => {
   ctx.scale(dpr, dpr);
   ctx.translate(0, canvas.offsetHeight / 2 + padding); // set Y = 0 to be in the middle of the canvas
 
+  for (let i = 0; i < parseInt(canvas.offsetWidth / 8 / 12) ; i++ ){
+    ctx.lineWidth = 1; // how thick the line is
+    ctx.strokeStyle = "#fff"; // what color our line is
+    ctx.beginPath();
+    ctx.moveTo(i * 8 * 12, -1 * canvas.offsetHeight);
+    ctx.lineTo(i * 8 * 12, canvas.offsetHeight);
+  }
+
   // draw the line segments
   const width = canvas.offsetWidth / normalizedData.length;
   for (let i = 0; i < normalizedData.length; i++) {
@@ -98,12 +106,6 @@ const draw = (normalizedData, index) => {
         height = height > canvas.offsetHeight / 2;
     }
     drawLineSegment(ctx, x, height, width, (i + 1) % 2);
-  }
-
-  for (let i = 0; i < parseInt(canvas.offsetWidth / 8 / 12) ; i++ ){
-    ctx.beginPath();
-    ctx.moveTo(i * 8 * 12, -1 * canvas.offsetHeight);
-    ctx.lineTo(i * 8 * 12, canvas.offsetHeight);
   }
 };
 
