@@ -80,6 +80,7 @@ const normalizeData = filteredData => {
  * @returns {Array} a normalized array of data
  */
 const draw = (normalizedData, index) => {
+    indexArray.push(index);
 
   // set up the canvas
   const canvas = document.getElementsByClassName("track_canvas")[index];
@@ -150,6 +151,7 @@ const addAudio = (url, title, index, delay) => {
 }
 
 const playButton = document.getElementsByClassName('playbutton')[0];
+
 var delayArray = []; 
 var audioArray = [];
 var indexArray = [];
