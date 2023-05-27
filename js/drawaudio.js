@@ -152,6 +152,14 @@ function asyncPlay(index) {
             audioArray[index].play();
             resolve();
         }, delayArray[index]);
+        document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="v-line" style="height: '+indexArray.length * 110+'px;"></div>';
+        var vLine = document.getElementsByClassName('v-line')[0];
+        var vLinePosition = 0;
+        (function repeatOften() {
+            vLinePosition += 32*parseInt(document.getElementById('bpm').innerText)/60/1000;
+            vLine.setAttribute('style', 'left: '+vLinePosition+'px;')
+            requestAnimationFrame(repeatOften);
+        })();
     });
   }
 

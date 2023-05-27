@@ -176,7 +176,7 @@ canvas {
   
 .tracklist {
     width: 100%;
-    position: relative;
+    transform: rotate(0);
     overflow-x: scroll;
     border-radius: 5px;
 }
@@ -185,6 +185,11 @@ canvas {
     position: fixed;
     left: 0;
     z-index: 1;
+}
+
+.v-line {
+    position: relative;
+    border-left : 2px solid var(--accent);
 }
 
 .track_add {
