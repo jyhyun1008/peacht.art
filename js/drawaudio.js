@@ -36,6 +36,7 @@ const drawAudio = (url, index, delay) => {
 const filterData = (audioBuffer, delay) => {
   const BPM = parseInt(document.getElementById('bpm').innerText);
   const BEAT = parseInt(document.getElementById('beat1').innerText)/parseInt(document.getElementById('beat2').innerText) * 4;
+  delayArray.push(delay*BEAT*60/BPM*1000);
   const ticksPerBeat = 8;
   const rawData = audioBuffer.getChannelData(0); // We only need to work with one channel of data
   console.log(audioBuffer);
@@ -143,6 +144,7 @@ const drawLineSegment = (ctx, x, height, width, isEven) => {
 };
 
 const addAudio = (url, title, index, delay) => {
+    urlArray.push(url);
     document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="track_item" >'+title+'<canvas class="track_canvas"></canvas></div>';
     drawAudio(url, index, delay);
 }
@@ -150,3 +152,19 @@ const addAudio = (url, title, index, delay) => {
 addAudio('assets/Melody-Sample.m4a', 'Melody-Sample', 0, 0);
 addAudio('assets/Bass-Sample.m4a','Bass-Sample' , 1, 0);
 addAudio('assets/Drum-Sample.m4a', 'Drum-Sample', 2, 0);
+
+const playButton = document.getElementsByClassName('albumart')[0];
+var urlArray = [];
+var delayArray = []; 
+var audioArray = [];
+
+const playHandler = (urlArray, delayArray) => {
+    for (var i = 0; i < urlArray.length; i++){
+        audioArray[i] = new Audio(urlArray[i]);
+        setTimeout(() => {
+            audioArray[i].play();
+        }, delayArray[i]);
+    }
+}
+
+playButton.addEventListener('click',playHandler);
