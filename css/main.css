@@ -195,7 +195,7 @@ canvas {
 }
 
 .v-line {
-    position: absolute;
+    position: relative;
     width: 2px;
     background-color: var(--accent);
 }

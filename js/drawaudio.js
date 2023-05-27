@@ -128,7 +128,7 @@ const drawLineSegment = (ctx, x, height, width, isEven) => {
 
 const addAudio = (url, title, index, delay) => {
     audioArray.push(new Audio(url));
-    document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="track_item" ><div class="track_controller" style="bottom: '+(trackCounts*110 - index*110 - 100)+'px;"><span class="track_title">'+title+'</span><span class="track_mute">M</span></div><canvas class="track_canvas"></canvas></div>';
+    document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="track_item" ><div class="track_controller" style="bottom: '+(trackCounts*110 - index*110 + 100)+'px;"><span class="track_title">'+title+'</span><span class="track_mute">M</span></div><canvas class="track_canvas"></canvas></div>';
     drawAudio(url, index, delay);
 }
 
@@ -149,7 +149,7 @@ addAudio('assets/Drum-Sample.m4a', '드럼', 2, 0);
 
 var vLine = document.getElementsByClassName('v-line')[0];
 var vLinePosition = 0;
-vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; left: '+vLinePosition+'px;');
+vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; margin-bottom: '+indexArray.length * -110+'px; left: '+vLinePosition+'px;');
 
 function asyncPlay(index) {
     return new Promise((resolve, reject) => {
@@ -172,7 +172,7 @@ playButton.addEventListener('click', function(event){
         parallel(indexArray);
         (function repeatOften() {
             vLinePosition += 32*BPM/60/60;
-            vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; left: '+vLinePosition+'px;');
+            vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; margin-bottom: '+indexArray.length * -110+'px; left: '+vLinePosition+'px;');
             playAnimation = requestAnimationFrame(repeatOften);
         })();
     } else if (playButton.innerHTML == '<i class="bx bx-pause-circle"></i>') {
@@ -187,7 +187,7 @@ playButton.addEventListener('click', function(event){
 document.getElementsByClassName('tracklist')[0].addEventListener('click', function(event){
     var x = event.offsetX;
     vLinePosition = x;
-    vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; left: '+vLinePosition+'px;');
+    vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; margin-bottom: '+indexArray.length * -110+'px; left: '+vLinePosition+'px;');
     playButton.innerHTML = '<i class="bx bx-play-circle"></i>';
     for (var i = 0; i < indexArray.length; i++){
         audioArray[i].pause();
