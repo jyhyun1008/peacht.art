@@ -93,6 +93,7 @@ const draw = (normalizedData, index) => {
     ctx.beginPath();
     ctx.moveTo(i * 8 * 12, -1 * canvas.offsetHeight);
     ctx.lineTo(i * 8 * 12, canvas.offsetHeight);
+    ctx.stroke();
   }
 
   // draw the line segments
