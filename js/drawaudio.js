@@ -79,26 +79,26 @@ const draw = (normalizedData, index) => {
   const canvas = document.getElementsByClassName("track_canvas")[index];
   const dpr = window.devicePixelRatio || 1;
   const padding = 20;
-  console.log(normalizedData.length * 6);
+  console.log(normalizedData.length * 4);
   canvas.setAttribute('style', 'width: '+(normalizedData.length * 6)+'px;');
-  canvas.offsetWidth = normalizedData.length * 6;
+  canvas.offsetWidth = normalizedData.length * 4;
   canvas.width = canvas.offsetWidth * dpr;
   canvas.height = (canvas.offsetHeight + padding * 2) * dpr;
   const ctx = canvas.getContext("2d");
   ctx.scale(dpr, dpr);
   ctx.translate(0, canvas.offsetHeight / 2 + padding); // set Y = 0 to be in the middle of the canvas
 
-  for (let i = 0; i < parseInt(canvas.offsetWidth / 8 / 6) ; i++ ){
+  for (let i = 0; i < parseInt(canvas.offsetWidth / 8 / 4) ; i++ ){
     ctx.lineWidth = 1; // how thick the line is
     ctx.strokeStyle = "#fff"; // what color our line is
     ctx.beginPath();
-    ctx.moveTo(i * 8 * 6, -1 * canvas.offsetHeight);
-    ctx.lineTo(i * 8 * 6, canvas.offsetHeight);
+    ctx.moveTo(i * 8 * 4, -1 * canvas.offsetHeight);
+    ctx.lineTo(i * 8 * 4, canvas.offsetHeight);
     ctx.stroke();
   }
 
   // draw the line segments
-  const width = 6;
+  const width = 4;
   for (let i = 0; i < normalizedData.length; i++) {
     const x = width * i;
     let height = normalizedData[i] * canvas.offsetHeight - padding;
