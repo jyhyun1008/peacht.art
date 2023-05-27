@@ -128,7 +128,7 @@ const drawLineSegment = (ctx, x, height, width, isEven) => {
 
 const addAudio = (url, title, index, delay) => {
     audioArray.push(new Audio(url));
-    document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="track_item" ><div class="track_controller" style="bottom: '+(indexArray.length*110 - index*110)+'px;"><span class="track_title">'+title+'</span><span class="track_mute">M</span></div><canvas class="track_canvas"></canvas></div>';
+    document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="track_item" ><div class="track_controller" style="bottom: '+(trackCounts*110 - index*110)+'px;"><span class="track_title">'+title+'</span><span class="track_mute">M</span></div><canvas class="track_canvas"></canvas></div>';
     drawAudio(url, index, delay);
 }
 
@@ -137,6 +137,7 @@ var playAnimation;
 
 const BPM = parseInt(document.getElementById('bpm').innerText);
 const BEAT = parseInt(document.getElementById('beat1').innerText)/parseInt(document.getElementById('beat2').innerText) * 4;
+const trackCounts = parseInt(document.getElementById('trackCounts').innerText);
 
 var delayArray = []; 
 var audioArray = [];
