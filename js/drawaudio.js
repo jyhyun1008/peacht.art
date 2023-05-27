@@ -132,7 +132,7 @@ const drawLineSegment = (ctx, x, height, width, isEven) => {
 
 const addAudio = (url, title, index, delay) => {
     audioArray.push(new Audio(url));
-    document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="track_item" ><div class="track_title">'+title+'</div><canvas class="track_canvas"></canvas></div>';
+    document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="track_item" ><div class="track_title" style="top: '+index*110+'px;>'+title+'</div><canvas class="track_canvas"></canvas></div>';
     drawAudio(url, index, delay);
 }
 
