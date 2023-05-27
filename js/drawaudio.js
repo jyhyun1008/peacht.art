@@ -159,9 +159,9 @@ addAudio('assets/Bass-Sample.m4a','Bass-Sample' , 1, 0);
 addAudio('assets/Drum-Sample.m4a', 'Drum-Sample', 2, 0);
 
 
-const playHandler = (urlArray, delayArray) => {
+const playHandler = () => {
     playButton.innerHTML = '<i class="bx bx-pause-circle" ></i>';
-    for (var i = 0; i < urlArray.length; i++){
+    for (var i = 0; i < audioArray.length; i++){
         setTimeout(() => {
             audioArray[i].play();
         }, delayArray[i]);
