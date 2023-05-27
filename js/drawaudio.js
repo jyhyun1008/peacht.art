@@ -97,7 +97,7 @@ const draw = (normalizedData, index) => {
   }
 
   // draw the line segments
-  const width = canvas.offsetWidth / normalizedData.length;
+  const width = 12;
   for (let i = 0; i < normalizedData.length; i++) {
     const x = width * i;
     let height = normalizedData[i] * canvas.offsetHeight - padding;
