@@ -80,6 +80,7 @@ const draw = (normalizedData, index) => {
   const canvas = document.getElementsByClassName("track_canvas")[index];
   const dpr = window.devicePixelRatio || 1;
   const padding = 20;
+  canvas.setAttribute('width', normalizedData.length * 12);
   canvas.offsetWidth = normalizedData.length * 12;
   canvas.width = canvas.offsetWidth * dpr;
   canvas.height = (canvas.offsetHeight + padding * 2) * dpr;
