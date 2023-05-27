@@ -137,6 +137,7 @@ const addAudio = (url, title, index, delay) => {
 }
 
 const playButton = document.getElementsByClassName('playbutton')[0];
+var playAnimation;
 
 var delayArray = []; 
 var audioArray = [];
@@ -171,12 +172,13 @@ playButton.addEventListener('click', function(event){
         (function repeatOften() {
             vLinePosition += 32*parseInt(document.getElementById('bpm').innerText)/60/1000;
             vLine.setAttribute('style', 'left: '+vLinePosition+'px;')
-            requestAnimationFrame(repeatOften);
+            playAnimation = requestAnimationFrame(repeatOften);
         })();
     } else if (playButton.innerHTML == '<i class="bx bx-pause-circle" ></i>') {
         playButton,innerHTML = '<i class="bx bx-play-circle" ></i>';
         for (var i = 0; i < indexArray.length; i++){
             audioArray[i].pause();
+            cancelAnimationFrame(playAnimation);
         }
     }
 });
