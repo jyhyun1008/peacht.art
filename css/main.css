@@ -188,8 +188,9 @@ canvas {
 }
 
 .v-line {
-    position: relative;
-    border-left : 2px solid var(--accent);
+    position: absolute;
+    width: 2px;
+    background-color: var(--accent);
 }
 
 .track_add {

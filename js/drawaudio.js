@@ -171,7 +171,7 @@ playButton.addEventListener('click', function(event){
         var vLinePosition = 0;
         (function repeatOften() {
             vLinePosition += 32*parseInt(document.getElementById('bpm').innerText)/60/1000;
-            vLine.setAttribute('style', 'left: '+vLinePosition+'px;')
+            vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; left: '+vLinePosition+'px;')
             playAnimation = requestAnimationFrame(repeatOften);
         })();
     } else if (playButton.innerHTML == '<i class="bx bx-pause-circle"></i>') {
