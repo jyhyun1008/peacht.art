@@ -144,14 +144,13 @@ const drawLineSegment = (ctx, x, height, width, isEven) => {
 };
 
 const addAudio = (url, title, index, delay) => {
-    urlArray.push(url);
+    audioArray.push(new Audio(url));
     document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="track_item" >'+title+'<canvas class="track_canvas"></canvas></div>';
     drawAudio(url, index, delay);
 }
 
 
 const playButton = document.getElementsByClassName('playbutton')[0];
-var urlArray = [];
 var delayArray = []; 
 var audioArray = [];
 
@@ -163,7 +162,6 @@ addAudio('assets/Drum-Sample.m4a', 'Drum-Sample', 2, 0);
 const playHandler = (urlArray, delayArray) => {
     playButton.innerHTML = '<i class="bx bx-pause-circle" ></i>';
     for (var i = 0; i < urlArray.length; i++){
-        audioArray[i] = new Audio(urlArray[i]);
         setTimeout(() => {
             audioArray[i].play();
         }, delayArray[i]);
