@@ -176,12 +176,13 @@ canvas {
   
 .tracklist {
     width: 100%;
+    position: relative;
     overflow-x: scroll;
     border-radius: 5px;
 }
 
 .track_title {
-    position: relative;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
