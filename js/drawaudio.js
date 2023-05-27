@@ -166,8 +166,8 @@ playButton.addEventListener('click', function(event){
     if (playButton.innerHTML == '<i class="bx bx-play-circle"></i>') {
         playButton.innerHTML = '<i class="bx bx-pause-circle"></i>';
         parallel(indexArray);
-        document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="v-line" style="height: '+indexArray.length * 110+'px;"></div>';
         var vLine = document.getElementsByClassName('v-line')[0];
+        vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; left: 0px;')
         var vLinePosition = 0;
         (function repeatOften() {
             vLinePosition += 32*parseInt(document.getElementById('bpm').innerText)/60/1000;
@@ -175,7 +175,7 @@ playButton.addEventListener('click', function(event){
             playAnimation = requestAnimationFrame(repeatOften);
         })();
     } else if (playButton.innerHTML == '<i class="bx bx-pause-circle"></i>') {
-        playButton,innerHTML = '<i class="bx bx-play-circle"></i>';
+        playButton.innerHTML = '<i class="bx bx-play-circle"></i>';
         for (var i = 0; i < indexArray.length; i++){
             audioArray[i].pause();
             cancelAnimationFrame(playAnimation);
