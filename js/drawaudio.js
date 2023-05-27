@@ -80,8 +80,7 @@ const draw = (normalizedData, index) => {
   const dpr = window.devicePixelRatio || 1;
   const padding = 20;
   console.log(normalizedData.length * 6);
-  canvas.setAttribute('offsetWidth', normalizedData.length * 6);
-  canvas.setAttribute('width', normalizedData.length * 6 * dpr);
+  canvas.setAttribute('style', 'width: '+(normalizedData.length * 6 * dpr)+'px;');
   canvas.offsetWidth = normalizedData.length * 6;
   canvas.width = canvas.offsetWidth * dpr;
   canvas.height = (canvas.offsetHeight + padding * 2) * dpr;
