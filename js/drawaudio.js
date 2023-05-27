@@ -20,8 +20,6 @@ const drawAudio = (url, index, delay) => {
  * @returns {Array} an array of floating point numbers
  */
 const filterData = (audioBuffer, delay) => {
-  const BPM = parseInt(document.getElementById('bpm').innerText);
-  const BEAT = parseInt(document.getElementById('beat1').innerText)/parseInt(document.getElementById('beat2').innerText) * 4;
   delayArray.push(delay*BEAT*60/BPM*1000);
   const ticksPerBeat = 8;
   const rawData = audioBuffer.getChannelData(0); // We only need to work with one channel of data
@@ -80,8 +78,6 @@ const draw = (normalizedData, index) => {
   ctx.scale(dpr, dpr);
   ctx.translate(0, canvas.offsetHeight / 2 + padding); // set Y = 0 to be in the middle of the canvas
 
-  const BEAT = parseInt(document.getElementById('beat1').innerText)/parseInt(document.getElementById('beat2').innerText) * 4;
-
   for (let i = 0; i < parseInt(canvas.offsetWidth / 8 / 4) ; i++ ){
     ctx.lineWidth = 1; // how thick the line is
     if (i % BEAT == 0 ){
@@ -139,6 +135,13 @@ const addAudio = (url, title, index, delay) => {
 const playButton = document.getElementsByClassName('playbutton')[0];
 var playAnimation;
 
+var vLine = document.getElementsByClassName('v-line')[0];
+var vLinePosition = 0;
+vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; left: '+vLinePosition+'px;');
+
+const BPM = parseInt(document.getElementById('bpm').innerText);
+const BEAT = parseInt(document.getElementById('beat1').innerText)/parseInt(document.getElementById('beat2').innerText) * 4;
+
 var delayArray = []; 
 var audioArray = [];
 var indexArray = [];
@@ -166,12 +169,9 @@ playButton.addEventListener('click', function(event){
     if (playButton.innerHTML == '<i class="bx bx-play-circle"></i>') {
         playButton.innerHTML = '<i class="bx bx-pause-circle"></i>';
         parallel(indexArray);
-        var vLine = document.getElementsByClassName('v-line')[0];
-        vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; left: 0px;')
-        var vLinePosition = 0;
         (function repeatOften() {
-            vLinePosition += 32*parseInt(document.getElementById('bpm').innerText)/60/60;
-            vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; left: '+vLinePosition+'px;')
+            vLinePosition += 32*BPM/60/60;
+            vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; left: '+vLinePosition+'px;');
             playAnimation = requestAnimationFrame(repeatOften);
         })();
     } else if (playButton.innerHTML == '<i class="bx bx-pause-circle"></i>') {
@@ -180,5 +180,18 @@ playButton.addEventListener('click', function(event){
             audioArray[i].pause();
             cancelAnimationFrame(playAnimation);
         }
+    }
+});
+
+document.getElementsByClassName('tracklist')[0].addEventListener('click', function(event){
+    var x = event.offsetX;
+    vLinePosition = x;
+    vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; left: '+vLinePosition+'px;');
+    for (var i = 0; i < indexArray.length; i++){
+        audioArray[i].pause();
+        cancelAnimationFrame(playAnimation);
+        audioArray[i].oncanplay = function() {
+            audioArray[i].currentTime = x*60/32/BPM;
+        };
     }
 });
