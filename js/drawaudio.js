@@ -150,7 +150,7 @@ const addAudio = (url, title, index, delay) => {
 }
 
 
-const playButton = document.getElementsByClassName('albumart')[0];
+const playButton = document.getElementsByClassName('playbutton')[0];
 var urlArray = [];
 var delayArray = []; 
 var audioArray = [];
@@ -161,6 +161,7 @@ addAudio('assets/Drum-Sample.m4a', 'Drum-Sample', 2, 0);
 
 
 const playHandler = (urlArray, delayArray) => {
+    playButton.innerHTML = '<i class="bx bx-pause-circle" ></i>';
     for (var i = 0; i < urlArray.length; i++){
         audioArray[i] = new Audio(urlArray[i]);
         setTimeout(() => {
