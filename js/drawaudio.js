@@ -44,7 +44,6 @@ const filterData = audioBuffer => {
   }
   //const samples = 1400; // Number of samples we want to have in our final data set
   const samples = rawData.length * ticksPerBeat * BPM / 60 / sampleRate; // Number of samples we want to have in our final data set
-  console.log(samples);
   const blockSize = Math.floor(rawData.length / samples); // the number of samples in each subdivision
   const filteredData = [];
   for (let i = 0; i < parseInt(samples); i++) {
@@ -55,7 +54,6 @@ const filterData = audioBuffer => {
     }
     filteredData.push(sum / blockSize); // divide the sum by the block size to get the average
   }
-  console.log(filteredData);
   return filteredData;
 };
 
@@ -80,6 +78,7 @@ const draw = (normalizedData, index) => {
   const canvas = document.getElementsByClassName("track_canvas")[index];
   const dpr = window.devicePixelRatio || 1;
   const padding = 20;
+  console.log(normalizedData.length * 6);
   canvas.setAttribute('width', normalizedData.length * 6);
   canvas.offsetWidth = normalizedData.length * 6;
   canvas.width = canvas.offsetWidth * dpr;
@@ -92,8 +91,8 @@ const draw = (normalizedData, index) => {
     ctx.lineWidth = 1; // how thick the line is
     ctx.strokeStyle = "#fff"; // what color our line is
     ctx.beginPath();
-    ctx.moveTo(i * 8 * 12, -1 * canvas.offsetHeight);
-    ctx.lineTo(i * 8 * 12, canvas.offsetHeight);
+    ctx.moveTo(i * 8 * 6, -1 * canvas.offsetHeight);
+    ctx.lineTo(i * 8 * 6, canvas.offsetHeight);
     ctx.stroke();
   }
 
