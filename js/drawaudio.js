@@ -180,4 +180,4 @@ const playFunction = () => {
     parallel(indexArray);
 }
 
-playButton.addEventListener('click', playFunction());
+playButton.addEventListener('mouseup', playFunction());
