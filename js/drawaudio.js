@@ -80,8 +80,8 @@ const draw = (normalizedData, index) => {
   const canvas = document.getElementsByClassName("track_canvas")[index];
   const dpr = window.devicePixelRatio || 1;
   const padding = 20;
-  canvas.setAttribute('width', normalizedData.length * 12);
-  canvas.offsetWidth = normalizedData.length * 12;
+  canvas.setAttribute('width', normalizedData.length * 6);
+  canvas.offsetWidth = normalizedData.length * 6;
   canvas.width = canvas.offsetWidth * dpr;
   canvas.height = (canvas.offsetHeight + padding * 2) * dpr;
   const ctx = canvas.getContext("2d");
@@ -98,7 +98,7 @@ const draw = (normalizedData, index) => {
   }
 
   // draw the line segments
-  const width = 12;
+  const width = 6;
   for (let i = 0; i < normalizedData.length; i++) {
     const x = width * i;
     let height = normalizedData[i] * canvas.offsetHeight - padding;
