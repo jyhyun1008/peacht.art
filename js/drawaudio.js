@@ -142,9 +142,9 @@ var delayArray = [];
 var audioArray = [];
 var indexArray = [];
 
-addAudio('assets/Melody-Sample.m4a', 'Melody-Sample', 0, 0);
-addAudio('assets/Bass-Sample.m4a','Bass-Sample' , 1, 0);
-addAudio('assets/Drum-Sample.m4a', 'Drum-Sample', 2, 0);
+addAudio('assets/Melody-Sample.m4a', '멜로디', 0, 0);
+addAudio('assets/Bass-Sample.m4a','베이스' , 1, 0);
+addAudio('assets/Drum-Sample.m4a', '드럼', 2, 0);
 
 var vLine = document.getElementsByClassName('v-line')[0];
 var vLinePosition = 0;
@@ -187,11 +187,10 @@ document.getElementsByClassName('tracklist')[0].addEventListener('click', functi
     var x = event.offsetX;
     vLinePosition = x;
     vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; left: '+vLinePosition+'px;');
+    playButton.innerHTML = '<i class="bx bx-play-circle"></i>';
     for (var i = 0; i < indexArray.length; i++){
         audioArray[i].pause();
         cancelAnimationFrame(playAnimation);
-        audioArray[i].oncanplay = function() {
-            audioArray[i].currentTime = x*60/32/BPM;
-        };
+        audioArray[i].currentTime = x*60/32/BPM;
     }
 });
