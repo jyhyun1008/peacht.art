@@ -68,7 +68,7 @@ body {
     margin: 0 auto;
 }
 
-.logo {
+.logo a {
     position: fixed;
     top: 0px;
     width: 100%;
@@ -81,7 +81,7 @@ body {
     text-align: center;
 }
 
-.logo span {
+.logo a span {
     font-size: inherit;
     color: var(--accent);
 }
