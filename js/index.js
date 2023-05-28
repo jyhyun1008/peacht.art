@@ -32,8 +32,11 @@ if (!song) {
     .then((out) => {
         result = JSON.parse(out);
         console.log(out);
-        user = out.user.login;
-        userAvatar = out.user.avatar_url;
+        ownedUserId = out.user.login;
+        ownedUserAvatar = out.user.avatar_url;
+        createdAt = out.created_at;
+        songTitle = out.title;
+        songInfo = out.body;
     })
     .catch(err => { throw err });
     
