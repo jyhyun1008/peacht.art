@@ -163,6 +163,7 @@ if (!song) {
             } else {
                 infoCover = infoCover.split(']')[0];
             }
+            console.log(infoCover);
             var infoTempo = songInfo.split('BPM')[1].split('*')[0];
             var infoBeat = songInfo.split('Beat')[1].split('*')[0].split('/');
             var trackInfo = result.body.split('#')[2].split('*')[1].split(' ');
