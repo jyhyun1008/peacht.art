@@ -199,7 +199,7 @@ if (!song) {
                 }
             }
 
-            document.getElementsByClassName('artist')[0].innerHTML = '<img src="'+ownedUserAvatar+'" class="user_avatar">'+ownedUserId;
+            document.getElementsByClassName('artist')[0].innerHTML = '<img src="'+ownedUserAvatar+'" class="user_avatar"><div>'+ownedUserId+'</div>';
             document.getElementById('bpm').innerText = infoTempo;
             document.getElementById('beat1').innerText = infoBeat[0];
             document.getElementById('beat2').innerText = infoBeat[1];
