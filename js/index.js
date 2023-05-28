@@ -157,6 +157,10 @@ if (!song) {
             var firstCreatedAt = result.created_at;
             var songTitle = result.title;
             var songInfo = result.body.split('#')[1];
+            var infoCover = songInfo.split('[')[1].split(']')[0];
+            if (!infoCover) {
+                infoCover = ownedUserAvatar;
+            }
             var infoTempo = songInfo.split('BPM')[1].split('*')[0];
             var infoBeat = songInfo.split('Beat')[1].split('*')[0].split('/');
             var trackInfo = result.body.split('#')[2].split('*')[1].split(' ');
@@ -200,6 +204,7 @@ if (!song) {
             }
 
             document.getElementsByClassName('songtitle')[0].innerHTML = songTitle;
+            document.getElementsByClassName('albumart_img')[0].innerHTML = '<img src"'+infoCover+'">';
             document.getElementsByClassName('artist')[0].innerHTML = '<img src="'+ownedUserAvatar+'" class="user_avatar"><div>'+ownedUserId+'</div>';
             document.getElementById('bpm').innerText = parseInt(infoTempo);
             document.getElementById('beat1').innerText = parseInt(infoBeat[0]);
