@@ -20,7 +20,6 @@ const drawAudio = (url, index, delay) => {
  * @returns {Array} an array of floating point numbers
  */
 const filterData = (audioBuffer, delay) => {
-  delayArray.push(delay*BEAT*60/BPM*1000);
   const ticksPerBeat = 8;
   const rawData = audioBuffer.getChannelData(0); // We only need to work with one channel of data
   console.log(audioBuffer);

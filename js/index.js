@@ -226,6 +226,7 @@ if (!song) {
             for (var i=0; i<trackTitle.length; i++){
                 audioArray.push(new Audio(trackUrl[i]));
                 indexArray.push(i);
+                delayArray.push(trackDelay[i]*BEAT*60/BPM*1000);
                 addAudio(trackUrl[i], trackTitle[i], i, trackDelay[i]);
             }
 
