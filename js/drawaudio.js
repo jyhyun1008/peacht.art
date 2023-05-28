@@ -7,11 +7,11 @@ const audioContext = new AudioContext();
  * Retrieves audio from an external source, the initializes the drawing function
  * @param {String} url the url of the audio we'd like to fetch
  */
-const drawAudio = (url, index, delay) => {
+const drawAudio = (BPM, BEAT, url, index, delay) => {
   fetch(url)
     .then(response => response.arrayBuffer())
     .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
-    .then(audioBuffer => draw(normalizeData(filterData(audioBuffer, delay)), index));
+    .then(audioBuffer => draw(normalizeData(filterData(BPM, BEAT, audioBuffer, delay)), index));
 };
 
 /**
@@ -19,7 +19,7 @@ const drawAudio = (url, index, delay) => {
  * @param {AudioBuffer} audioBuffer the AudioBuffer from drawAudio()
  * @returns {Array} an array of floating point numbers
  */
-const filterData = (audioBuffer, delay) => {
+const filterData = (BPM, BEAT, audioBuffer, delay) => {
   const ticksPerBeat = 8;
   const rawData = audioBuffer.getChannelData(0); // We only need to work with one channel of data
   console.log(audioBuffer);
@@ -125,9 +125,9 @@ const drawLineSegment = (ctx, x, height, width, isEven) => {
   ctx.stroke();
 };
 
-const addAudio = (url, title, index, delay) => {
+const addAudio = (BPM, BEAT, url, title, index, delay) => {
     document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="track_item" ><div class="track_controller" style="bottom: '+(trackCounts*113.8 - index*113.8 + 78)+'px;"><span class="track_title">'+title+'</span><span class="track_mute">M</span></div><canvas class="track_canvas"></canvas></div>';
-    drawAudio(url, index, delay);
+    drawAudio(BPM, BEAT, url, index, delay);
 }
 
 const playButton = document.getElementsByClassName('playbutton')[0];
