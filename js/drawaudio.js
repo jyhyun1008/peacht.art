@@ -143,10 +143,6 @@ var delayArray = [];
 var audioArray = [];
 var indexArray = [];
 
-addAudio('assets/Melody-Sample.m4a', '멜로디', 0, 0);
-addAudio('assets/Bass-Sample.m4a','베이스' , 1, 0);
-addAudio('assets/Drum-Sample.m4a', '드럼', 2, 0);
-
 var vLine = document.getElementsByClassName('v-line')[0];
 var vLinePosition = 0;
 vLine.setAttribute('style', 'height: '+indexArray.length * 110+'px; margin-bottom: '+indexArray.length * -110+'px; left: '+vLinePosition+'px;');

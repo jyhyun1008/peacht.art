@@ -158,7 +158,7 @@ if (!song) {
             var songTitle = result.title;
             var songInfo = result.body.split('#')[1];
             var infoTempo = songInfo.split('BPM')[1].split('*')[0];
-            var infoBeat = songInfo.split('Beat')[1].split('*')[0];
+            var infoBeat = songInfo.split('Beat')[1].split('*')[0].split('/');
             var trackInfo = result.body.split('#')[2].split('*')[1].split(' ');
 
             var trackTitle = [];
@@ -183,6 +183,8 @@ if (!song) {
 
 
             for (var j=0; j<resultc.length; j++){
+                userId.push(resultc[j].user.login);
+                userAvatar.push(resultc[j].user.avatar_url);
                 trackInfo = resultc[j].body.split('*')[1].split(' ');
                 for (var i=0; i<trackInfo.length; i++){
                     if (trackInfo[i].includes('\\T')){
@@ -197,8 +199,17 @@ if (!song) {
                 }
             }
 
+            document.getElementsByClassName('artist')[0].innerHTML = '<img src="'+ownedUserAvatar+'" class="user_avatar">'+ownedUserId;
+            document.getElementById('bpm').innerText = infoTempo;
+            document.getElementById('beat1').innerText = infoBeat[0];
+            document.getElementById('beat2').innerText = infoBeat[1];
+            document.getElementById('trackCounts').innerText = trackTitle.length;
 
             console.log(infoTempo, infoBeat, trackTitle, trackVolume, trackDelay, trackUrl);
+
+            for (var i=0; i<trackTitle.length; i++){
+                addAudio(trackUrl[i], trackTitle[i], i, trackDelay[i]);
+            }
         })
     })
     .catch(err => { throw err });
