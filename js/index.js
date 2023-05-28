@@ -208,9 +208,69 @@ if (!song) {
 
             console.log(infoTempo, infoBeat, trackTitle, trackVolume, trackDelay, trackUrl);
 
+            var audioArray = [];
+            var indexArray = [];
+
+            const BPM = parseInt(infoTempo);
+            const BEAT = parseInt(infoBeat[0])/parseInt(infoBeat) * 4;
+            const trackCounts = trackTitle.length;
+
             for (var i=0; i<trackTitle.length; i++){
+                audioArray.push(new Audio(trackUrl[i]));
+                indexArray.push(i);
                 addAudio(trackUrl[i], trackTitle[i], i, trackDelay[i]);
             }
+
+
+            var vLine = document.getElementsByClassName('v-line')[0];
+            var vLinePosition = 0;
+            vLine.setAttribute('style', 'height: '+trackTitle.length * 110+'px; margin-bottom: '+trackTitle.length * -110+'px; left: '+vLinePosition+'px;');
+
+            function asyncPlay(index) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        audioArray[index].play();
+                        resolve();
+                    }, delayArray[index]);
+                });
+            }
+
+            async function parallel(array) {
+                const promises = array.map((index) => asyncPlay(index));
+                await Promise.all(promises);
+                console.log("all done :)");
+            }
+
+            playButton.addEventListener('click', function(event){
+                if (playButton.innerHTML == '<i class="bx bx-play-circle"></i>') {
+                    playButton.innerHTML = '<i class="bx bx-pause-circle"></i>';
+                    parallel(indexArray);
+                    (function repeatOften() {
+                        vLinePosition += 32*BPM/60/60;
+                        vLine.setAttribute('style', 'height: '+trackTitle.length * 110+'px; margin-bottom: '+trackTitle.length * -110+'px; left: '+vLinePosition+'px;');
+                        playAnimation = requestAnimationFrame(repeatOften);
+                    })();
+                } else if (playButton.innerHTML == '<i class="bx bx-pause-circle"></i>') {
+                    playButton.innerHTML = '<i class="bx bx-play-circle"></i>';
+                    for (var i = 0; i < trackTitle.length; i++){
+                        audioArray[i].pause();
+                        cancelAnimationFrame(playAnimation);
+                    }
+                }
+            });
+
+            document.getElementsByClassName('tracklist')[0].addEventListener('click', function(event){
+                var x = event.offsetX;
+                vLinePosition = x;
+                vLine.setAttribute('style', 'height: '+trackTitle.length * 110+'px; margin-bottom: '+trackTitle.length * -110+'px; left: '+vLinePosition+'px;');
+                playButton.innerHTML = '<i class="bx bx-play-circle"></i>';
+                for (var i = 0; i < trackTitle.length; i++){
+                    audioArray[i].pause();
+                    cancelAnimationFrame(playAnimation);
+                    audioArray[i].currentTime = x*60/32/BPM;
+                }
+            });
+
         })
     })
     .catch(err => { throw err });
