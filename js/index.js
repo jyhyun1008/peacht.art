@@ -152,8 +152,6 @@ if (!song) {
             var result = JSON.parse(out);
             var resultc = JSON.parse(outc);
 
-            console.log(result);
-
             var ownedUserId = result.user.login;
             var ownedUserAvatar = result.user.avatar_url;
             var firstCreatedAt = result.created_at;
