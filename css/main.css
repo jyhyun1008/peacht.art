@@ -182,7 +182,7 @@ canvas {
 
 .track_controller {
     position: fixed;
-    left: min(286px, calc(50% + 30px));
+    left: min(286px, 50%);
     z-index: 1;
 }
 
