@@ -145,6 +145,12 @@ canvas {
     margin: 10px;
 }
 
+.user_avatar {
+    height: 1.5rem;
+    aspect-ratio: 1 / 1;
+    margin: 3px;
+}
+
 .songtitle {
     font-family: 'Bold';
 }
