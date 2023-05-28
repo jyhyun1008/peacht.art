@@ -210,6 +210,7 @@ if (!song) {
 
             var audioArray = [];
             var indexArray = [];
+            var delayArray = [];
 
             const BPM = parseInt(infoTempo);
             const BEAT = parseInt(infoBeat[0])/parseInt(infoBeat) * 4;
