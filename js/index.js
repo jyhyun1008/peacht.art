@@ -164,11 +164,11 @@ if (!song) {
             var firstCreatedAt = result.created_at;
             var songTitle = result.title;
             var songInfo = result.body.split('#')[1];
-            var infoCover = songInfo.split('[')[1];
+            var infoCover = songInfo.split('(')[1];
             if (!infoCover) {
                 infoCover = result.user.avatar_url;
             } else {
-                infoCover = infoCover.split(']')[0];
+                infoCover = infoCover.split(')')[0];
             }
             var infoTempo = songInfo.split('BPM')[1].split('*')[0];
             var infoBeat = songInfo.split('Beat')[1].split('*')[0].split('/');
