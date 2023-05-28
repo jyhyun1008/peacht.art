@@ -142,12 +142,12 @@ if (!song) {
     fetch(url)
     .then(res => res.text())
     .then((out) => {
-        document.querySelector(".song").setAttribute("style", "display: none;");
         document.querySelector("#markdown_title").innerHTML = '피치타르트!';
         document.querySelector("#markdown_content").innerHTML += parseMd(out);
     })
     .catch(err => { throw err });
 } else if (song) {
+    document.querySelector(".song").setAttribute("style", "display: block;");
     var url = "https://api.github.com/repos/jyhyun1008/peacht.art/issues/"+song;
     fetch(url)
     .then(res => res.text())
