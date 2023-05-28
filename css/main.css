@@ -128,6 +128,12 @@ body {
     color: var(--white);
 }
 
+#markdown_title {
+    font-size: 2em;
+    margin-top: 0.5em;
+    color: var(--accent);
+}
+
 canvas {
     width: 10000px;
     height: 100px;

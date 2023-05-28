@@ -142,8 +142,9 @@ if (!song) {
     fetch(url)
     .then(res => res.text())
     .then((out) => {
-        document.querySelector("#markdown_title").innerHTML = 'Yeojibur.in'
-        document.querySelector("#markdown_content").innerHTML += parseMd(out)
+        document.querySelector(".song").setAttribute("style", "display: none;");
+        document.querySelector("#markdown_title").innerHTML = '피치타르트!';
+        document.querySelector("#markdown_content").innerHTML += parseMd(out);
     })
     .catch(err => { throw err });
 } else if (song) {
