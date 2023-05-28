@@ -183,7 +183,7 @@ if (!song) {
 
 
             for (var j=0; j<resultc.length; j++){
-                trackInfo = resultc[i].body.split('*')[1].split(' ');
+                trackInfo = resultc[j].body.split('*')[1].split(' ');
                 for (var i=0; i<trackInfo.length; i++){
                     if (trackInfo[i].includes('T')){
                         trackTitle.push(trackInfo[i].split('T')[1]);
