@@ -145,13 +145,46 @@ if (!song) {
     fetch(url)
     .then(res => res.text())
     .then((out) => {
-        result = JSON.parse(out);
-        console.log(out);
-        ownedUserId = out.user.login;
-        ownedUserAvatar = out.user.avatar_url;
-        createdAt = out.created_at;
-        songTitle = out.title;
-        songInfo = out.body;
+        var urlc = "https://api.github.com/repos/jyhyun1008/peacht.art/issues/"+song+"/comments";
+        fetch(urlc)
+        .then(res => res.text())
+        .then((outc) => {
+            var result = JSON.parse(out);
+            var resultc = JSON.parse(outc);
+
+            console.log(result);
+
+            var ownedUserId = result.user.login;
+            var ownedUserAvatar = result.user.avatar_url;
+            var firstCreatedAt = result.created_at;
+            var songTitle = result.title;
+            var songInfo = result.body.split('#')[1];
+            var infoTempo = songInfo.split('BPM')[1].split('\\')[0];
+            var infoBeat = songInfo.split('Beat')[1].split('\\')[0];
+            var trackInfo = result.body.split('#')[2].split('*')[1].split(' ');
+
+            var trackTitle = [];
+            var trackVolume = [];
+            var trackDelay = [];
+            var trackUrl = [];
+
+            for (var i=0; i<trackInfo.length; i++){
+                if (trackInfo[i].includes('T')){
+                    trackTitle.push(trackInfo[i].split('T')[1]);
+                } else if (trackInfo[i].includes('V')){
+                    trackVolume.push(trackInfo[i].split('V')[1]);
+                } else if (trackInfo[i].includes('D')){
+                    trackDelay.push(trackInfo[i].split('D')[1]);
+                } else if (trackInfo[i].includes('http')){
+                    trackUrl.push(trackInfo[i]);
+                }
+            }
+
+            userId = [ownedUserId];
+            userAvatar = [ownedUserAvatar];
+
+            console.log(infoTempo, infoBeat, trackTitle, trackVolume, trackDelay, trackUrl);
+        })
     })
     .catch(err => { throw err });
     
