@@ -174,7 +174,7 @@ if (!song) {
                 } else if (trackInfo[i].includes('D')){
                     trackDelay.push(trackInfo[i].split('D')[1]);
                 } else if (trackInfo[i].includes('http')){
-                    trackUrl.push(trackInfo[i].split('\n')[0]);
+                    trackUrl.push(trackInfo[i].split('\n')[0].split('\r')[0]);
                 }
             }
 
