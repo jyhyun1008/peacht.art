@@ -11,7 +11,7 @@ const drawAudio = (BPM, BEAT, url, index, delay) => {
   fetch(url)
     .then(response => response.arrayBuffer())
     .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
-    .then(audioBuffer => draw(normalizeData(filterData(BPM, BEAT, audioBuffer, delay)), index));
+    .then(audioBuffer => draw(BEAT, normalizeData(filterData(BPM, BEAT, audioBuffer, delay)), index));
 };
 
 /**
@@ -62,7 +62,7 @@ const normalizeData = filteredData => {
  * @param {Array} normalizedData The filtered array returned from filterData()
  * @returns {Array} a normalized array of data
  */
-const draw = (normalizedData, index) => {
+const draw = (BEAT, normalizedData, index) => {
 
   // set up the canvas
   const canvas = document.getElementsByClassName("track_canvas")[index];
