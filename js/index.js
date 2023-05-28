@@ -167,14 +167,14 @@ if (!song) {
             var trackUrl = [];
 
             for (var i=0; i<trackInfo.length; i++){
-                if (trackInfo[i].includes('T')){
-                    trackTitle.push(trackInfo[i].split('T')[1]);
-                } else if (trackInfo[i].includes('V')){
-                    trackVolume.push(trackInfo[i].split('V')[1]);
-                } else if (trackInfo[i].includes('D')){
-                    trackDelay.push(trackInfo[i].split('D')[1]);
-                } else if (trackInfo[i].includes('http')){
-                    trackUrl.push(trackInfo[i].split('\n')[0].split('\r')[0]);
+                if (trackInfo[i].includes('/T')){
+                    trackTitle.push(trackInfo[i].split('/T')[1]);
+                } else if (trackInfo[i].includes('/V')){
+                    trackVolume.push(trackInfo[i].split('/V')[1]);
+                } else if (trackInfo[i].includes('/D')){
+                    trackDelay.push(trackInfo[i].split('/D')[1]);
+                } else if (trackInfo[i].includes('/http')){
+                    trackUrl.push(trackInfo[i].split('/')[1].split('\n')[0].split('\r')[0]);
                 }
             }
 
@@ -185,14 +185,14 @@ if (!song) {
             for (var j=0; j<resultc.length; j++){
                 trackInfo = resultc[j].body.split('*')[1].split(' ');
                 for (var i=0; i<trackInfo.length; i++){
-                    if (trackInfo[i].includes('T')){
-                        trackTitle.push(trackInfo[i].split('T')[1]);
-                    } else if (trackInfo[i].includes('V')){
-                        trackVolume.push(trackInfo[i].split('V')[1]);
-                    } else if (trackInfo[i].includes('D')){
-                        trackDelay.push(trackInfo[i].split('D')[1]);
-                    } else if (trackInfo[i].includes('http')){
-                        trackUrl.push(trackInfo[i].split('\n')[0].split('\r')[0]);
+                    if (trackInfo[i].includes('/T')){
+                        trackTitle.push(trackInfo[i].split('/T')[1]);
+                    } else if (trackInfo[i].includes('/V')){
+                        trackVolume.push(trackInfo[i].split('/V')[1]);
+                    } else if (trackInfo[i].includes('/D')){
+                        trackDelay.push(trackInfo[i].split('/D')[1]);
+                    } else if (trackInfo[i].includes('/http')){
+                        trackUrl.push(trackInfo[i].split('/')[1].split('\n')[0].split('\r')[0]);
                     }
                 }
             }
