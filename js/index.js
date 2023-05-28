@@ -207,7 +207,7 @@ if (!song) {
             }
 
             document.getElementsByClassName('songtitle')[0].innerHTML = songTitle;
-            document.getElementsByClassName('albumart_img')[0].innerHTML = '<img src"'+infoCover+'">';
+            document.getElementsByClassName('albumart_img')[0].innerHTML = '<img src="'+infoCover+'">';
             document.getElementsByClassName('artist')[0].innerHTML = '<img src="'+ownedUserAvatar+'" class="user_avatar"><div>'+ownedUserId+'</div>';
             document.getElementById('bpm').innerText = parseInt(infoTempo);
             document.getElementById('beat1').innerText = parseInt(infoBeat[0]);
