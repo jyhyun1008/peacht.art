@@ -159,7 +159,7 @@ if (!song) {
             var songInfo = result.body.split('#')[1];
             var infoCover = songInfo.split('[')[1];
             if (!infoCover) {
-                infoCover = ownedUserAvatar;
+                infoCover = result.user.avatar_url;
             } else {
                 infoCover = infoCover.split(']')[0];
             }
