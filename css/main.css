@@ -61,6 +61,14 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 10px;
 }
 
+p {
+    margin-bottom: 10px;
+}
+
+ul {
+    margin-left: 1.5rem;
+}
+
 body {
     height: 100vh;
     overflow: hidden;
@@ -140,6 +148,10 @@ canvas {
     border-radius: 5px;
     background-color: var(--lightgray);
     margin-bottom: 5px;
+}
+
+.markdown {
+    margin-top: 100px;
 }
 
 .song {
