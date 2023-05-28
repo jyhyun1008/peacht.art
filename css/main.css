@@ -213,6 +213,10 @@ canvas {
     border-radius: 5px;
 }
 
+.track_title span {
+    margin-right: 10px;
+}
+
 .v-line {
     position: relative;
     width: 2px;
