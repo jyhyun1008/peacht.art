@@ -214,8 +214,6 @@ if (!song) {
             document.getElementById('beat2').innerText = parseInt(infoBeat[1]);
             document.getElementById('trackCounts').innerText = trackTitle.length;
 
-            console.log(infoTempo, infoBeat, trackTitle, trackVolume, trackDelay, trackUrl);
-
             var audioArray = [];
             var indexArray = [];
             var delayArray = [];
@@ -248,7 +246,6 @@ if (!song) {
             async function parallel(array) {
                 const promises = array.map((index) => asyncPlay(index));
                 await Promise.all(promises);
-                console.log("all done :)");
             }
 
             playButton.addEventListener('click', function(event){
