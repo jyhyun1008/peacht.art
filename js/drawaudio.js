@@ -124,8 +124,8 @@ const drawLineSegment = (ctx, x, height, width, isEven) => {
   ctx.stroke();
 };
 
-const addAudio = (BPM, BEAT, url, title, index, delay) => {
-    document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="track_item" ><div class="track_controller" style="bottom: '+(trackCounts*113.8 - index*113.8 + 78)+'px;"><span class="track_title">'+title+'</span><span class="track_mute">M</span></div><canvas class="track_canvas"></canvas></div>';
+const addAudio = (BPM, BEAT, url, title, artist, avatar, index, delay) => {
+    document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="track_item" ><div class="track_controller" style="bottom: '+(trackCounts*113.8 - index*113.8 + 68)+'px;"><span class="track_title">'+title+' by <img src="'+avatar+'" class="user_avatar"> '+artist+'</span><span class="track_mute">M</span></div><canvas class="track_canvas"></canvas></div>';
     drawAudio(BPM, BEAT, url, index, delay);
 }
 

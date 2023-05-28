@@ -225,7 +225,7 @@ if (!song) {
                 audioArray.push(new Audio(trackUrl[i]));
                 indexArray.push(i);
                 delayArray.push(trackDelay[i]*BEAT*60/BPM*1000);
-                addAudio(BPM, BEAT, trackUrl[i], trackTitle[i], i, trackDelay[i]);
+                addAudio(BPM, BEAT, trackUrl[i], trackTitle[i], userId[i], userAvatar[i], i, trackDelay[i]);
             }
 
 
