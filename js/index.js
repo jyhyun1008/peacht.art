@@ -131,6 +131,12 @@ var qs = getQueryStringObject();
 var song = qs.song;
 
 
+const addAudio = (BPM, BEAT, url, title, artist, avatar, index, delay) => {
+    document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="track_item" ><div class="track_controller" style="bottom: '+(trackCounts*113.8 - index*113.8 + 68)+'px;"><span class="track_title">'+title+' by  <img src="'+avatar+'" class="user_avatar">'+artist+'</span><span class="track_mute">M</span></div><canvas class="track_canvas"></canvas></div>';
+    drawAudio(BPM, BEAT, url, index, delay);
+}
+
+
 if (!song) {
     var url = "https://raw.githubusercontent.com/jyhyun1008/peacht.art/main/README.md"
     fetch(url)
