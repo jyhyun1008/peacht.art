@@ -147,17 +147,13 @@ canvas {
 
 .artist {
     display: flex;
-    align-items: stretch;
-    margin: 5px;
-    border-radius: 5px;
-    background-color: var(--lightgray);
-    color: var(--darkgray);
+    align-items: center;
 }
 
 .user_avatar {
     height: 1.5rem;
     aspect-ratio: 1 / 1;
-    margin-right: 5px;
+    margin-right: 10px;
     border-radius: 0.8rem;
 }
 
