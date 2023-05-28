@@ -197,12 +197,15 @@ canvas {
 }
 
 .track_controller {
+    display: flex;
     position: fixed;
     left: min(286px, 50%);
     z-index: 1;
 }
 
 .track_title, .track_mute {
+    display: flex;
+    align-items: stretch;
     background-color: var(--white);
     color: var(--darkgray);
     margin: 3px;
