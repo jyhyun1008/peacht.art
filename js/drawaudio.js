@@ -63,7 +63,6 @@ const normalizeData = filteredData => {
  * @returns {Array} a normalized array of data
  */
 const draw = (normalizedData, index) => {
-    indexArray.push(index);
 
   // set up the canvas
   const canvas = document.getElementsByClassName("track_canvas")[index];
