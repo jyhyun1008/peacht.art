@@ -155,11 +155,10 @@ canvas {
 }
 
 .song {
-    display: none;
     margin-top: 100px;
     transform: translate(min(calc( 300px - 50vw ), 0px), 0);
     width: 100vw;
-    display: flex;
+    display: none;
 }
 
 .info {
