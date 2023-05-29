@@ -147,7 +147,7 @@ if (!song) {
     })
     .catch(err => { throw err });
 } else if (song) {
-    document.querySelector(".song").setAttribute("style", "display: block;");
+    document.querySelector(".song").setAttribute("style", "display: flex;");
     var url = "https://api.github.com/repos/jyhyun1008/peacht.art/issues/"+song;
     fetch(url)
     .then(res => res.text())
