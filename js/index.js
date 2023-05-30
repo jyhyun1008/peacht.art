@@ -129,12 +129,24 @@ function getQueryStringObject() {
 
 var qs = getQueryStringObject();
 var song = qs.song;
+var page = qs.mypage;
 
 const addAudio = (BPM, BEAT, url, title, artist, avatar, index, delay) => {
     document.getElementsByClassName('tracklist')[0].innerHTML += '<div class="track_item" ><div class="track_controller" style="bottom: '+(trackCounts*113.8 - index*113.8 + 68)+'px;"><span class="track_title"><span>'+title+' by </span><img src="'+avatar+'" class="user_avatar">'+artist+'</span><span class="track_mute">M</span></div><canvas class="track_canvas"></canvas></div>';
     drawAudio(BPM, BEAT, url, index, delay);
 }
 
+if (page = 'mypage') {
+    var loginurl = "http://hyun1008.dothome.co.kr/musictart/main.php"
+    fetch(url)
+    .then(res => res.text())
+    .then((out) => {
+        var session = JSON.parse(out);
+        document.querySelector("#markdown_title").innerHTML = '피치타르트!';
+        document.querySelector("#markdown_content").innerHTML += session;
+    })
+    .catch(err => { throw err });
+}
 
 if (!song) {
     var url = "https://raw.githubusercontent.com/jyhyun1008/peacht.art/main/README.md"
