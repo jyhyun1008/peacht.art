@@ -138,6 +138,9 @@ const addAudio = (BPM, BEAT, url, title, artist, avatar, index, delay) => {
 
 if (page = 'mypage') {
     var loginurl = "http://hyun1008.dothome.co.kr/musictart/main.php"
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", loginurl, true);
+    xmlHttp.send();
     fetch(loginurl)
     .then(res => res.text())
     .then((out) => {
