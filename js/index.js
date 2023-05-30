@@ -138,7 +138,7 @@ const addAudio = (BPM, BEAT, url, title, artist, avatar, index, delay) => {
 
 if (page = 'mypage') {
     var loginurl = "http://hyun1008.dothome.co.kr/musictart/main.php"
-    fetch(url)
+    fetch(loginurl)
     .then(res => res.text())
     .then((out) => {
         var session = JSON.parse(out);
