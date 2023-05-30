@@ -2,7 +2,7 @@ function getIssues(opts){
     opts.data = opts.data || [];
     opts.page = opts.page || 1;
     var url = 'https://api.github.com/repos/' + opts.username + '/' + opts.repo;
-    url += '/issues?callback=?&page=' + opts.page + '&per_page=100&state=' + opts.state;
+    url += '/issues?&page=' + opts.page + '&per_page=100&state=' + opts.state;
     $.ajax(url, {
         dataType: 'jsonp',
         success: function(res){
